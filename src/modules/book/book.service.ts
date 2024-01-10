@@ -6,7 +6,7 @@ import { PrismaService } from 'src/database/PrismaService';
 @Injectable()
 export class BookService {
 
-    constructor(private prisma: PrismaService) {}
+    constructor(private prisma: PrismaService) {} 
 
 
    async create (data: BookDTO) {
@@ -20,7 +20,9 @@ export class BookService {
        });
 
        if(bookExists) {
-        throw new Error('book alredy exists');        
+        console.log('400 book alreyexist');
+        throw new Error('book alredy exists');   
+        
 
        }
        const book = await this.prisma.book.create({
